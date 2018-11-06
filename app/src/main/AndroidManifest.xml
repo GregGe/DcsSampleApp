@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.baidu.duer.dcs.sample">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <application
+        android:name=".sdk.DcsSampleApplication"
+        android:allowBackup="false"
+        android:label="${APP_NAME}"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:icon="@drawable/demo_logo"
+        tools:replace="android:theme, android:icon">
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <!--定位sdk结束-->
+
+
+
+
+        <activity
+            android:name=".sdk.SDKAsrAutoWithOutWakeUpActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity
+            android:name=".sdk.SDKAsrAutoWithWakeUpActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity
+            android:name=".sdk.SDKAsrTouchActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+
+
+        <activity
+            android:name=".sdk.SDKNearFarAsrActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+
+
+        <activity android:name=".sdk.SDKAsrTypeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+
+
+        <activity
+            android:name=".SDKTtsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+
+
+
+        <activity
+            android:name=".sdk.SDKAsrOffLineActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <activity
+            android:name=".SDKMainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+        </activity>
+
+
+
+        <!-- 离线配置开始，如果不用离线配置不用配置 -->
+        <!--gs
+           离线功能即离线语法及唤醒词功能开启需要正式授权，正式授权完全由SDK自动管理：
+           1. 在百度语音开放平台注册应用，http://yuyin.baidu.com/app
+           2. 给在百度语音开放平台注册应用绑定包名。本demo的包名是com.baidu.duer.dcs，在build.gradle文件中查看。
+           3. 在当前应用的AndroidManifest.xml中填写相应的APP_ID API_KEY SECRET_KEY
+           4. 首次使用联网。正式授权目前有效期三年，三年之后的最后一个月尝试更新正式授权。
+           另外需要注意的是优先在线识别，即离线语法识别功能在在线（包括2G网络）的情况下自动不启用。。
+        -->
+        <!-- 请填写真实的APP_ID API_KEY SECRET_KEY -->
+        <meta-data
+            android:name="com.baidu.speech.APP_ID"
+            android:value="9889421"/>
+        <!-- 集成时，请进入百度地图官网申请自己的定位服务API_KEY！！！ -->
+        <!-- 定位sdk开始 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="zYs2hGZyfV4GqDu1rTmWMbjqI2DMjG1b" />
+        <!--
+         再次重复！！填写APP_ID 时请检查在官网的该应用内是否设置了包名。否则会导致唤醒词及离线功能无法使用。
+         本demo的包名是com.baidu.duer.dcs，在build.gradle文件中查看。
+        -->
+        <!-- 正式发布时，请替换成您自己的appId 本demo的appId会不定时下线 -->
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="BPAivB6HFuThw4o6Wm60xN0N" />
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="78de6d7293de9f8421ef1e1880f0b702" />
+        <!--离线配置结束-->
+
+
+
+        <!-- KITT 唤醒 单独进程 -->
+        <service
+            android:name="com.baidu.duer.kitt.KittWakeUpService"
+            android:enabled="true"
+            android:process=":kittwakeup" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">DcsSampleApp</string>
+    <string name="err_net_msg">当前网络连接失败,请稍后重试</string>
+    <string name="voice_err_msg">识别失败，请稍后再试</string>
+    <string name="audio_paused">暂停中&#8230;</string>
+    <string name="audio_playing">播放中&#8230;</string>
+    <string name="audio_default">等待音乐</string>
+    <string name="stop_record">点击说话</string>
+    <string name="start_record">录音中&#8230;</string>
+    <string name="speaking">播报中&#8230;</string>
+    <string name="think">思考中&#8230;</string>
+    <string name="time_record">耗时:click->StopListen:%1$dms</string>
+    <string name="request_error">出错了，请稍后再试</string>
+    <string name="no_log">暂时没有日志</string>
+    <string name="no_directive">对不起，暂时没有收到指令</string>
+    <string name="inputed_text_cannot_be_empty">输入的内容不能为空</string>
+    <string name="no_audio">暂时没有歌曲了，请稍后再试</string>
+    <string name="open_file_title">选择浏览工具</string>
+    <string name="previous_audio">上一首</string>
+    <string name="upload_contacts">上传联系人</string>
+    <string name="next_audio">下一首</string>
+    <string name="open_log">打开日志</string>
+    <string name="send">发送</string>
+    <string name="login">登陆</string>
+    <string name="client_id">您应用的client_id</string>
+    <string name="client_id_empty">请输入您申请的client_id</string>
+    <string name="login_succeed">登陆成功</string>
+    <string name="login_failed">登陆失败</string>
+    <string name="login_canceled">登陆取消</string>
+    <string name="wakeup_succeed">唤醒成功,您问点什么呢?</string>
+    <string name="wakeup_word">您可以说【小度小度】进行唤醒</string>
+    <string name="audio_permission_error_msg">录音权限失败</string>
+    <string name="send_edit_hint">输入你要查询的内容</string>
+    <string name="unlogin_hint">登录状态：未登录</string>
+    <string name="logined_hint">登录状态：已登录</string>
+
+    <string name="tts_info_volume_hint">声音大小（0&#8211;9）</string>
+    <string name="tts_info_speed_hint">语速（0&#8211;9）</string>
+    <string name="tts_info_pitch_hint">语调（0&#8211;9）</string>
+    <string name="tts_info_speaker_hint">声音类型（0&#8211;4）</string>
+    <string name="tts_info_aue_hint">音频格式</string>
+    <string name="tts_info_rate_hint">码率</string>
+    <string name="tts_info_xml_hint">是否为xml</string>
+    <string name="tts_info_reset_hint">重置</string>
+</resources>

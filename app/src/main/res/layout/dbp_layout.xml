@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="用于调试在dbp平台中开发的技能，填写技能Id后进行调试" />
+
+    <EditText
+        android:id="@+id/bot_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Debug bot id" />
+</LinearLayout>

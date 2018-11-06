@@ -1,0 +1,109 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.baidu.duer.dcs"
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        manifestPlaceholders = [APP_NAME: "DcsAclDemo"]
+        buildConfigField("String", "CLIENT_ID", "\"d8ITlI9aeTPaGcxKKsZit8tq\"")
+        buildConfigField("int", "PID", "1704")
+        buildConfigField("String", "APP_KEY", "\"com.baidu.dumi.open.far\"")
+        buildConfigField("String", "APP_TITLE", "\"dcs-sdk-\"+com.baidu.duer.dcs.util.util.DcsGlobalConfig.VERSION_NAME")
+        buildConfigField("String", "TTS_APIKEY", "\"zYs2hGZyfV4GqDu1rTmWMbjqI2DMjG1b\"")
+        buildConfigField("String", "TTS_SERCERTKEY", "\"WEDIKCt4zAS9n5UYS6WvWmx4H3dIWTRw\"")
+        buildConfigField("String", "TTS_APPID", "\"10321182\"")
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('keystore.jks')
+            storePassword '123456'
+            keyAlias 'baidu'
+            keyPassword '123456'
+        }
+        release {
+            storeFile file('keystore.jks')
+            storePassword '123456'
+            keyAlias 'baidu'
+            keyPassword '123456'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled rootProject.ext.debugMinifyEnabled
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 定位授权与签名SHA1对应，必须使用release签名
+            signingConfig signingConfigs.release
+            // 干预打包，防止以下类发生:NoClassDefFoundError crash
+            multiDexKeepFile file('multidex-config.txt')
+        }
+        release {
+            minifyEnabled rootProject.ext.releaseMinifyEnabled
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 定位授权与签名SHA1对应，必须使用release签名
+            signingConfig signingConfigs.release
+            // 干预打包，防止以下类发生:NoClassDefFoundError crash
+            multiDexKeepFile file('multidex-config.txt')
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/ASL2.0'
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:support-annotations:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:design:25.3.0'
+
+    // 百度url音频播放器
+    compile name: 'bdplayer-release', ext: 'aar'
+    // 定位
+    compile project(':location')
+    // 可选-------
+
+    def jacksonVersion = '2.9.1'
+    compile "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    compile "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+
+    compile 'com.android.support:multidex:1.0.3'
+
+}

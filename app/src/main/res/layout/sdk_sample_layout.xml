@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickDbp"
+            android:text="DBP 技能(Bot) 调试"
+            android:textAllCaps="false" />
+
+        <ViewStub
+            android:id="@+id/vs_dbp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/dbp_layout" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAutoWithWakeUp"
+            android:text="在线asr-自动听音模式-有唤醒"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAutoWithOutWakeUp"
+            android:text="在线asr-自动听音模式-无唤醒"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickTouch"
+            android:text="在线asr-touch听音模式-无唤醒"
+            android:textAllCaps="false" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="离线时请说： 打电话给张三(one query)"
+            android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAutoWithOutWakeUpOffLine"
+            android:text="离线asr-自动听音模式-无唤醒"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAutoWithWakeUpOffLine"
+            android:text="离线asr-自动听音模式-有唤醒"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickTouchOffLine"
+            android:text="离线asr-touch听音模式-无唤醒"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="离线时请说：打电话给张三(one query)\n离线成功用离线的结果，否则用在线的"
+            android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAutoWithOutWakeUpOffLinePriority"
+            android:text="离线优先asr-自动听音模式-无唤醒"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAutoWithWakeUpOffLinePriority"
+            android:text="离线优先asr-自动听音模式-有唤醒"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickTouchWithOutWakeUpOffLinePriority"
+            android:text="离线优先asr-touch听音模式-无唤醒"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="onClickSwitchVadAndTouch"
+            android:text="在线asr(有唤醒)-两种模式-动态切换"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="onClickTts"
+            android:text="离线tts"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickDlpServer"
+            android:text="DlpServer"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickDlpServerV3"
+            android:text="DlpServerV3"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickSound"
+            android:visibility="gone"
+            android:text="音箱Demo端"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickChuangWei"
+            android:visibility="visible"
+            android:text="创维"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="场景唤醒词" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickConditionWakeUp"
+            android:text="场景唤醒词测试"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="TTS参数" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickUpdateOnlineTts"
+            android:text="修改在线TTS参数"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="ASR测试（仅返回ASR结果，不返回度秘结果）" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAsrOnly"
+            android:text="ASR测试"
+            android:textAllCaps="false" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Passport 账号认证" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickPassport"
+            android:text="Oauth测试"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickQrPassport"
+            android:text="扫码登陆"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickUniLogin"
+            android:text="定制联合登陆界面"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAsrOffLine"
+            android:text="新离线ASR测试"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>
