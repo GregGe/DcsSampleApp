@@ -20,6 +20,22 @@ android {
         buildConfigField("String", "TTS_APIKEY", "\"zYs2hGZyfV4GqDu1rTmWMbjqI2DMjG1b\"")
         buildConfigField("String", "TTS_SERCERTKEY", "\"WEDIKCt4zAS9n5UYS6WvWmx4H3dIWTRw\"")
         buildConfigField("String", "TTS_APPID", "\"10321182\"")
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -frtti -fexceptions -I/src/main/cpp"
+            }
+        }
+        ndk {
+            // 平台
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
     }
 
     signingConfigs {

@@ -78,6 +78,7 @@ import com.baidu.duer.dcs.sample.sdk.devicemodule.screen.message.HtmlPayload;
 import com.baidu.duer.dcs.sample.sdk.devicemodule.screen.message.RenderCardPayload;
 import com.baidu.duer.dcs.sample.sdk.devicemodule.screen.message.RenderHintPayload;
 import com.baidu.duer.dcs.sample.sdk.devicemodule.screen.message.RenderVoiceInputTextPayload;
+import com.baidu.duer.dcs.sample.sdk.wakeup.DroiWakeUp;
 import com.baidu.duer.dcs.systeminterface.IOauth;
 import com.baidu.duer.dcs.util.AsrType;
 import com.baidu.duer.dcs.util.DcsErrorCode;
@@ -384,7 +385,8 @@ public abstract class SDKBaseActivity extends AppCompatActivity implements
         //IOauth oauth = getOauth();
         IOauth oauth = new SilentLoginImpl(CLIENT_ID);
         // 唤醒单独开启唤醒进程；  如果不需要将唤醒放入一个单独进程，可以使用KittWakeUpImpl
-        final BaseWakeup wakeup = new KittWakeUpServiceImpl(audioRecorder);
+        //final BaseWakeup wakeup = new KittWakeUpServiceImpl(audioRecorder);
+        final BaseWakeup wakeup = new DroiWakeUp(audioRecorder);
         // 百度语音团队的离线asr和百度语音团队的唤醒，2个so库冲突，暂时不要用WakeupImpl实现的唤醒功能！！
 //        final BaseWakeup wakeup = new WakeupImpl();
         final IWakeupProvider wakeupProvider = new IWakeupProvider() {
