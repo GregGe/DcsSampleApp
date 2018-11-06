@@ -65,6 +65,7 @@ import com.baidu.duer.dcs.framework.location.Location;
 import com.baidu.duer.dcs.location.ILocation;
 import com.baidu.duer.dcs.location.LocationImpl;
 import com.baidu.duer.dcs.oauth.api.code.OauthCodeImpl;
+import com.baidu.duer.dcs.oauth.api.silent.SilentLoginImpl;
 import com.baidu.duer.dcs.router.ICES;
 import com.baidu.duer.dcs.router.IFlow;
 import com.baidu.duer.dcs.sample.BuildConfig;
@@ -379,7 +380,9 @@ public abstract class SDKBaseActivity extends AppCompatActivity implements
         // 第一步初始化sdk
         // BaseAudioRecorder audioRecorder = new PcmAudioRecorderImpl(); pcm 输入方式
         BaseAudioRecorder audioRecorder = new AudioRecordImpl();
-        IOauth oauth = getOauth();
+
+        //IOauth oauth = getOauth();
+        IOauth oauth = new SilentLoginImpl(CLIENT_ID);
         // 唤醒单独开启唤醒进程；  如果不需要将唤醒放入一个单独进程，可以使用KittWakeUpImpl
         final BaseWakeup wakeup = new KittWakeUpServiceImpl(audioRecorder);
         // 百度语音团队的离线asr和百度语音团队的唤醒，2个so库冲突，暂时不要用WakeupImpl实现的唤醒功能！！
