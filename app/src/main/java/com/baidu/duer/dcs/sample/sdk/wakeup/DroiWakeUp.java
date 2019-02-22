@@ -95,7 +95,7 @@ public class DroiWakeUp extends BaseWakeup {
         }
         // 2.开始唤醒
         if (wakeUpInitialRet == WAKEUP_INIT_SUCCEED) {
-            wakeup();
+            startDecodeThread();
         } else {
             LogUtil.d(TAG, "wakeup wakeUpInitialRet failed, not startWakeUp ");
         }
@@ -144,7 +144,6 @@ public class DroiWakeUp extends BaseWakeup {
             this.audioRecorder.removeRecorderListener(this.recorderListener);
         }
 
-        this.linkedBlockingDeque.clear();
         this.handler.removeCallbacksAndMessages(null);
         if (iStopWakeupListener != null) {
             iStopWakeupListener.onStopWakeup();
@@ -154,14 +153,6 @@ public class DroiWakeUp extends BaseWakeup {
     @Override
     public void release() {
         super.release();
-
-        if (this.wakeUpDecodeThread != null) {
-            try {
-                this.wakeUpDecodeThread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
         int ret = wakeUpNative.wakeUpFree();
         LogUtil.d(TAG, "wakeUpFree-ret:" + ret);
     }
